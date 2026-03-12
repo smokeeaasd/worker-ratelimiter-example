@@ -2,8 +2,26 @@ import { Hono } from "hono";
 
 const app = new Hono<{ Bindings: CloudflareBindings }>();
 
-app.get("/message", (c) => {
-  return c.text("Hello Hono!");
+app.use("*", async (c, next) => {
+  // Não recomendado: vários usuários podem compartilhar o mesmo IP
+  // especialmente em redes móveis ou corporativas.
+  const ipAddr = c.req.header("cf-connecting-ip") || "";
+  const { success } = await c.env.RATELIMITER.limit({ key: ipAddr });
+
+  if (!success) {
+    return c.text("Too Many Requests", 429);
+  }
+
+  await next();
+});
+
+app.get("/", (c) => {
+  const cf = c.req.raw.cf;
+
+  return c.json({
+    message: 'Access granted! You are within the rate limit.',
+    location: cf ? `${cf.city}, ${cf.country}` : "Unknown location",
+  })
 });
 
 export default app;
