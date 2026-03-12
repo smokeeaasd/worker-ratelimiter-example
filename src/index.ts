@@ -21,7 +21,7 @@ app.use("/api/*", async (c, next) => {
 
 app.get("/api/message", (c) => {
   return c.json({
-    message: "Access granted to protected API data!",
+    message: "Access granted! You are within the rate limit",
   });
 });
 
