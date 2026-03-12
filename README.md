@@ -1,6 +1,6 @@
 # 🛡️ Rate Limiting com Hono e Cloudflare Workers
 
-Este projeto demonstra a implementação de uma camada de **Segurança na Borda (Edge Security)** utilizando a API nativa de **Rate Limiting** da Cloudflare e o framework **Hono**. O objetivo é proteger rotas críticas da API contra abusos e exaustão de recursos diretamente no ponto de presença mais próximo do usuário.
+Este projeto demonstra a implementação de uma camada de segurança utilizando a API nativa de **Rate Limiting** da Cloudflare e o framework **Hono**. O objetivo é proteger rotas críticas da API contra abusos e exaustão de recursos diretamente no ponto de presença mais próximo do usuário.
 
 ### 🚀 Por que Rate Limiting na Edge?
 
