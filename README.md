@@ -35,14 +35,21 @@ npm install
 
 ```
 
-**2. Inicie o servidor de desenvolvimento local:**
+**2. Atualize a tipagem dos Bindings:**
+
+```bash
+npm run cf-typegen
+
+```
+
+**3. Inicie o servidor de desenvolvimento local:**
 
 ```bash
 npm run dev
 
 ```
 
-**3. Faça o deploy para a Cloudflare:**
+**4. Faça o deploy para a Cloudflare:**
 
 ```bash
 npm run deploy
